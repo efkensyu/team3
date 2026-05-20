@@ -8,12 +8,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class Team3Login {
 	//画面遷移でカレンダー画面にとぶ。
 	
-		@GetMapping("/team3")
+		@GetMapping("/team3_login")
 		public String index() {
 			return "Team3LoginIn";
 		}
 		
-		@PostMapping("/team3")
+		@PostMapping("/team3_login")
 		public String index2() {
 			return "Team3KalenderIn";
 		}

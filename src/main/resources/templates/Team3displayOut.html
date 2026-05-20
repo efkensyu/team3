@@ -8,21 +8,30 @@
 <!--ここでは、買った商品、値段を入力させてください。-->
 <h1>購入した商品の詳細を入力してください。</h1>
 <br>
-商品名<input type ="text" name ="syouhin">
+
+<form method = "post" th:action = "@{/controller}">
+商品名<input type ="text" name ="name">
 <br>
-値段<input type ="text" name ="nedan">
+値段<input type ="text" name ="price">
 <!--追加ボタンを作成してください。-->
 <input type ="text" name ="tuika" value = "追加">
 <!--追加ボタンを押したら、DBに登録してください。-->
+</form>
 
 <!--ーーーーーーーーーーーーーーーーーーーーー-->
 <!--＜一覧表示できるようにする＞-->
 <!--編集ボタンを作成してください。-->
+<!--<form method = "post" th:action = "@{/team3}">-->
+<!--<input type ="text" name ="hensyu" value = "編集">-->
 <!--編集ボタンを押したら、入力した内容を変更できるようにする。-->
 
 <!--削除ボタンの作成してください。-->
+<!--<input type ="text" name ="sakujyo" value = "削除">-->
 <!--削除ボタンを押したら、DBから追加した内容を削除してください。-->
 
 <!--キャンセルボタンを押したら、Karenderに飛んでください。-->
+<!--<input type ="text" name ="cancel" value = "キャンセル">-->
+<!--</form>-->
+
 </body>
 </html>
