@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.ofg">
+<head>
+<meta charset="UTF-8">
+<title>家計簿ログイン画面</title>
+</head>
+<body>
+<form method = "post" th:action = "@{/team3}">
+		<h1>家計簿アプリ</h1>
+	<!--ここには、ユーザー名とパスワードを入力させてください。-->
+		<br>
+		ユーザー名<input type ="text" name ="username">
+		<br>
+		<!--<input type ="text" name ="password">-->
+		<input type ="submit" value ="ログイン">
+	</form>
+</body>
+</html>
