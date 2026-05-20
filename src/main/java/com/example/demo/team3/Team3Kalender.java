@@ -15,6 +15,7 @@ public class Team3Kalender {
 			return "Team3KalenderIn";
 		}
 	
+	
 	@PostMapping("/kalender")
 		public String send(@RequestParam("day") String day,Model model) {
 		model.addAttribute("day",day);
