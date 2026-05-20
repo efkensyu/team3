@@ -12,6 +12,7 @@ public class Team3Kalender {
 	
 	@GetMapping("/kalender")
 		public String index() {
+			
 			return "Team3KalenderIn";
 		}
 	
@@ -19,6 +20,6 @@ public class Team3Kalender {
 	@PostMapping("/kalender")
 		public String send(@RequestParam("day") String day,Model model) {
 		model.addAttribute("day",day);
-		return "Team3KalenderOut";
+		return "Team3displayIn";
 	}
 }
