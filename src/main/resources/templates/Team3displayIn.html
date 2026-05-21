@@ -16,7 +16,6 @@
 		   値段:<span th:text="${item.price}"></span>円
 		</div>
 	
-		
 	</div>	
 	<!--何も登録していない場合	-->
 	<div th:if="${#lists.isEmpty(list)}">
@@ -26,6 +25,11 @@
 	<form method="get" th:action="@{Team3displayOut}" th:object="${team3House}">
 	<!--Javaファイルに入力情報を渡す-->
 	<input type="submit" value="追加">	
+	</form>
+	
+	<form method = "post" th:action = "@{/cancel1}">
+	<!--キャンセルボタンを押したら、Karenderに飛んでください。-->
+	<input type ="submit" name ="cancel1" value = "戻る">
 	</form>	
 </body>
 </html>
