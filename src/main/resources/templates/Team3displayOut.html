@@ -9,16 +9,12 @@
 <h1>購入した商品の詳細を入力してください。</h1>
 <br>
 <form method="post" th:action="@{/add}" th:object="${team3House}">
-
 商品名<input type ="text" th:field="*{name}">
 <br>
 値段<input type ="text" th:field="*{price}">円
 <!--追加ボタンを作成してください。-->
 <input type ="submit" name ="tuika" value = "追加">
 <!--追加ボタンを押したら、DBに登録してください。-->
-
-<input type ="hidden" th:field="*{name}">
-<input type ="hidden" th:field="*{price}">
 </form>
 
 <!-- データがない場合 -->
