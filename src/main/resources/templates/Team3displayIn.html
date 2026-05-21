@@ -5,27 +5,24 @@
 <title>家計簿カレンダー画面</title>
 </head>
 <body>
-
+	<form method="get" th:action="@{Team3displayOut}" th:object="${team3House}">
+	<!--Javaファイルに入力情報を渡す-->
 	<h1 th:text="${day}"></h1>
 
 	<!--登録した情報がある場合-->
-	<div th:if="${!#lists.isEmpty(list)}">
-		<div th:each="item : ${list}">
-		   商品名:<span th:text="${item.name}"></span>
-		   <br>
-		   値段:<span th:text="${item.price}"></span>円
-		</div>
+	<p th:if="${!#lists.isEmpty(list)}">
+		<p th:each="item : ${list}">
+		   <span th:text="*{item.name}"></span>
+		   <span th:text="*{item.price}"></span>
+		</p>
 	
+		<input type="submit" value="追加">	
 		
-	</div>	
 	<!--何も登録していない場合	-->
-	<div th:if="${#lists.isEmpty(list)}">
+	<p th:if="${#lists.isEmpty(list)}">
 	    なにも登録されていません
-	</div>	
-	
-	<form method="get" th:action="@{Team3displayOut}" th:object="${team3House}">
-	<!--Javaファイルに入力情報を渡す-->
-	<input type="submit" value="追加">	
+	</p>	
+
 	</form>	
 </body>
 </html>
