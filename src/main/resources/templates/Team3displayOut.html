@@ -10,8 +10,10 @@
 <br>
 <form method="post" th:action="@{/add}" th:object="${team3House}">
 商品名<input type ="text" th:field="*{name}">
+<th:block th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></th:block>
 <br>
 値段<input type ="text" th:field="*{price}">円
+<th:block th:if="${#fields.hasErrors('price')}" th:errors="*{price}"></th:block>
 <!--追加ボタンを作成してください。-->
 <input type ="submit" name ="tuika" value = "追加">
 <!--追加ボタンを押したら、DBに登録してください。-->
