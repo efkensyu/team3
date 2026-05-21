@@ -1,5 +1,8 @@
 package com.example.demo.team3;
 
+import lombok.Data;
+
+@Data
 public class Team3House {
 	private String name;
 	

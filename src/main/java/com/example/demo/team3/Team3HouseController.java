@@ -8,9 +8,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import lombok.RequiredArgsConstructor;
-
+@SessionAttributes("team3House")
 @RequiredArgsConstructor
 @Controller	
 public class Team3HouseController {
@@ -28,11 +29,12 @@ ArrayList<Team3House> ary = new ArrayList<>();
 	//追加ボタンを押したら記入内容が同ファイルにとぶ
 	@GetMapping("/Team3displayOut")
 	public String get(Model model) {
+		model.addAttribute("team3House", new Team3House());
 		model.addAttribute("ary", ary);
 		return "/Team3displayOut";
 	}
 	
-	@PostMapping("/recontroller")
+	@PostMapping("/add")
 	public String add(@ModelAttribute Team3House team3House) {
 		ary.add(team3House);
 		return "redirect:/Team3displayOut";
@@ -50,6 +52,17 @@ ArrayList<Team3House> ary = new ArrayList<>();
 					@RequestParam("index") int index) {
 		ary.set(index, team3House);
 		return "redirect:/Team3displayOut";
+	}
+	
+	@PostMapping("/cancel")
+	public String cancel() {
+		return "/Team3KalenderIn";
+	}
+	
+	@PostMapping("/save")
+	public String save(@ModelAttribute Team3House team3House, Model model) {
+		model.addAttribute("team3House", team3House);
+		return "/Team3displayIn";
 	}
 	
 
