@@ -1,8 +1,5 @@
 package com.example.demo.team3;
 
-
-
-
 import java.util.ArrayList;
 
 import org.springframework.stereotype.Controller;
@@ -48,6 +45,8 @@ ArrayList<Team3House> ary = new ArrayList<>();
 	}
 	
 	@PostMapping("/update")
+	
+	
 	public String update(
 					@ModelAttribute("team3House") Team3House team3House ,
 					@RequestParam("index") int index) {

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>入力画面</title>
+</head>
+<body>
+
+<h2>データ入力</h2>
+
+<form action="/add" method="post">
+    日付: <input type="date" name="date"><br>
+    カテゴリ: <input type="text" name="category"><br>
+    価格: <input type="number" name="price"><br>
+    数量: <input type="number" name="amount"><br>
+    <button type="submit">登録</button>
+</form>
+
+<br>
+<a href="/list">一覧を見る</a>
+
+</body>
+</html>
