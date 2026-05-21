@@ -48,8 +48,8 @@ ArrayList<Team3House> ary = new ArrayList<>();
 	
 	@PostMapping("/update")
 	public String update(
-					@ModelAttribute("team3House") Team3House team3House ,
-					@RequestParam("index") int index) {
+			@ModelAttribute("team3House") Team3House team3House ,
+			@RequestParam("index") int index) {
 		ary.set(index, team3House);
 		return "redirect:/Team3displayOut";
 	}
@@ -60,8 +60,8 @@ ArrayList<Team3House> ary = new ArrayList<>();
 	}
 	
 	@PostMapping("/save")
-	public String save(@ModelAttribute Team3House team3House, Model model) {
-		model.addAttribute("team3House", team3House);
+	public String save(Model model) {
+		model.addAttribute("list", ary);
 		return "/Team3displayIn";
 	}
 	
