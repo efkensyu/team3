@@ -8,9 +8,9 @@ import lombok.Data;
 
 @Data
 public class Team3House {
-	
 	@NotBlank(message="商品名を入力してください。")
 	private String name;
+	
 	@NotNull(message="値段を入力してください。")
 	@Min(0)
 	private int price;
