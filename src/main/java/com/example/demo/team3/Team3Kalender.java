@@ -22,4 +22,10 @@ public class Team3Kalender {
 		model.addAttribute("day",day);
 		return "Team3displayIn";
 	}
+		
+	@PostMapping("/cancel1")
+	public String cancel1() {
+		return "/Team3KalenderIn";
+	}
+	
 }

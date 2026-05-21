@@ -14,7 +14,7 @@ import lombok.RequiredArgsConstructor;
 @SessionAttributes("team3House")
 @RequiredArgsConstructor
 @Controller	
-public class Team3HouseController {
+public class Team3displayController {
 	
 	//private final Team3Repository repository;
 ArrayList<Team3House> ary = new ArrayList<>();
@@ -54,8 +54,8 @@ ArrayList<Team3House> ary = new ArrayList<>();
 		return "redirect:/Team3displayOut";
 	}
 	
-	@PostMapping("/cancel")
-	public String cancel() {
+	@PostMapping("/cancel2")
+	public String cancel2() {
 		return "/Team3KalenderIn";
 	}
 	
