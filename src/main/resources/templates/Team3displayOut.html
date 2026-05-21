@@ -5,15 +5,14 @@
 <title>家計簿の追加や編集、削除画面</title>
 </head>
 <body>
-
 <!--ここでは、買った商品、値段を入力させてください。-->
 <h1>購入した商品の詳細を入力してください。</h1>
 <br>
+<form method="post" action="/recontroller">
 
-<form method="post" th:action="@{/add}" th:object="${Team3House}">
-商品名<input type ="text" th:field="*{name}">
+商品名<input type ="text" name ="name">
 <br>
-値段<input type ="text" th:field="*{price}">円
+値段<input type ="text" name ="price">円
 <!--追加ボタンを作成してください。-->
 <input type ="submit" name ="tuika" value = "追加">
 <!--追加ボタンを押したら、DBに登録してください。-->
@@ -32,30 +31,25 @@
         値段：<span th:text="${item.price}"></span> 円
 		
 	<!--編集ボタン-->
-		<form method="post" th:action="@{/update}" th:object="${Team3House}">
+		<form method="post" action="/update">
 		<input type="hidden" name="index" th:value="${st.index}">
-		商品名：<input type="text" th:field="*{name}">
+		商品名：<input type="text" name="name" th:value="${item.name}">
 		<br>
-		値段：<input type="text" th:field="*{price}">
+		値段：<input type="text" name="price" th:value="${item.price}">
 		<input type="submit" value="更新">
 		</form>
 		
 	<!--削除ボタン-->
-		<form method="post" th:action="@{/delete}">
+		<form method="post" action="/delete">
 		<input type="hidden" name="index" th:value="${st.index}">
 		<input type="submit" value="削除">
 		</form>
 </div>
-
-<form method = "post" th:action="@{/cancel}">
+<!--ーーーーーーーーーーーーーーーーーーーーー-->
+<!--<form method = "post" th:action = "@{/cancel}">-->
 <!--キャンセルボタンを押したら、Karenderに飛んでください。-->
-<input type ="submit" name ="cancel" value = "キャンセル">
-</form>
-
-<form method = "post" th:action="@{/save}" th:object="${Team3House}">
-<!--保存ボタンを押したら、Team3displayInにデータを飛ばし、画面遷移してください。-->
-<input type ="submit" name ="save" value = "保存">
-</form>
+<!--<input type ="text" name ="cancel" value = "キャンセル">-->
+<!--</form>-->
 
 </body>
 </html>

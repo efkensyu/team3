@@ -8,11 +8,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.SessionAttributes;
 
 import lombok.RequiredArgsConstructor;
 
-@SessionAttributes("Team3House")
 @RequiredArgsConstructor
 @Controller	
 public class Team3HouseController {
@@ -34,8 +32,8 @@ ArrayList<Team3House> ary = new ArrayList<>();
 		return "/Team3displayOut";
 	}
 	
-	@PostMapping("/add")
-	public String add(@ModelAttribute("Team3House") Team3House team3House) {
+	@PostMapping("/recontroller")
+	public String add(@ModelAttribute Team3House team3House) {
 		ary.add(team3House);
 		return "redirect:/Team3displayOut";
 	}
@@ -48,26 +46,11 @@ ArrayList<Team3House> ary = new ArrayList<>();
 	
 	@PostMapping("/update")
 	public String update(
-					@ModelAttribute("Team3House") Team3House team3House ,
+					@ModelAttribute("team3House") Team3House team3House ,
 					@RequestParam("index") int index) {
 		ary.set(index, team3House);
 		return "redirect:/Team3displayOut";
 	}
 	
-	@PostMapping("/cancel")
-	public String cancel() {
-		return "/Team3KalenderIn";
-	}
-	
-	@ModelAttribute("Team3House")
-	public Team3House setupTeam3House() {
-		return new Team3House();
-	}
-	
-	@PostMapping("/save")
-	public String send (Model model) {
-		model.addAttribute("list", ary);
-		return "Team3displayIn";
-	}
 
 }
