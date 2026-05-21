@@ -17,6 +17,8 @@
 <input type ="submit" name ="tuika" value = "追加">
 <!--追加ボタンを押したら、DBに登録してください。-->
 
+<input type ="hidden" th:field="*{name}">
+<input type ="hidden" th:field="*{price}">
 </form>
 
 <!-- データがない場合 -->
@@ -31,20 +33,20 @@
 		<br>
         値段：<span th:text="${item.price}"></span> 円
 		
-<!--	編集ボタン-->
-<!--		<form method="post" th:action="@{/update}">-->
-<!--		<input type="hidden" name="index" th:value="${st.index}">-->
-<!--		商品名：<input type="text" name="name" th:value="${item.name}">-->
-<!--		<br>-->
-<!--		値段：<input type="text" name="price" th:value="${item.price}">-->
-<!--		<input type="submit" value="更新">-->
-<!--		</form>-->
+	<!--編集ボタン-->
+		<form method="post" th:action="@{/update}">
+		<input type="hidden" name="index" th:value="${st.index}">
+		商品名：<input type="text" name="name" th:value="${item.name}">
+		<br>
+		値段：<input type="text" name="price" th:value="${item.price}">
+		<input type="submit" value="更新">
+		</form>
 		
-<!--	削除ボタン-->
-<!--		<form method="post" th:action="@{/delete}">-->
-<!--		<input type="hidden" name="index" th:value="${st.index}">-->
-<!--		<input type="submit" value="削除">-->
-<!--		</form>-->
+	<!--削除ボタン-->
+		<form method="post" th:action="@{/delete}">
+		<input type="hidden" name="index" th:value="${st.index}">
+		<input type="submit" value="削除">
+		</form>
 </div>
 <!--ーーーーーーーーーーーーーーーーーーーーー-->
 <form method = "post" th:action = "@{/cancel}">
