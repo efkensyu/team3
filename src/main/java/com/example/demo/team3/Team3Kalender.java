@@ -20,7 +20,13 @@ public class Team3Kalender {
 	
 	@PostMapping("/kalender")
 		public String send(@RequestParam("day") String day,Model model) {
-		model.addAttribute("day",day);
+		try {
+			model.addAttribute("day",day);
+		}catch(Exception e) {
+			 e.printStackTrace();
+			 return "Team3Error";
+		}
+		
 		return "Team3displayIn";
 	}
 		

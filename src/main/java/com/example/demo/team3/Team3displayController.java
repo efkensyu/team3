@@ -22,57 +22,78 @@ public class Team3displayController {
 	//private final Team3Repository repository;
 ArrayList<Team3House> ary = new ArrayList<>();
 	
-//	//Todo2というHTMLファイルを探す
-//	@GetMapping("/controller")
-//	public String start(Model model) {
-//		model.addAttribute("ary", ary);
-//		return "/Team3displayOut";
-//	}
-	
-	//追加ボタンを押したら記入内容が同ファイルにとぶ
-	@GetMapping("/Team3displayOut")
-	public String get(Model model) {
-		model.addAttribute("team3House", new Team3House());
-		model.addAttribute("ary", ary);
-		return "/Team3displayOut";
-	}
-	
-	@PostMapping("/add")
-	public String add(@ModelAttribute @Validated Team3House team3House, BindingResult result) {
-		ary.add(team3House);
-		if (result.hasErrors()) {
+		//追加ボタンを押したら記入内容が同ファイルにとぶ
+		@GetMapping("/Team3displayOut")
+		public String get(Model model) {
+			try {
+				model.addAttribute("team3House", new Team3House());
+				model.addAttribute("ary", ary);
+			}catch(Exception e) {
+				 e.printStackTrace();
+				 return "Team3Error";
+			}
+			
 			return "/Team3displayOut";
+			
+			
 		}
-		return "redirect:/Team3displayOut";
-	}
-	
-	@PostMapping("/delete")
-	public String delete(@RequestParam("index")int index) {
-		ary.remove(index);
-		return "redirect:/Team3displayOut";
-	}
-	
-	@PostMapping("/update")
-	public String update(
-					@ModelAttribute("team3House") Team3House team3House ,
-					@RequestParam("index") int index) {
-		ary.set(index, team3House);
-		return "redirect:/Team3displayOut";
-	}
-	
-	@PostMapping("/cancel2")
-	public String cancel2() {
-		return "/Team3KalenderIn";
-	}
-	
-	@PostMapping("/save")
+		
+		@PostMapping("/add")
+		public String add(
+				@ModelAttribute @Validated 
+				Team3House team3House, BindingResult result) {
+			ary.add(team3House);
+			if (result.hasErrors()) {
+				return "/Team3displayOut";
+			}
+			return "redirect:/Team3displayOut";
+		}
+		
+		@PostMapping("/delete")
+		public String delete(@RequestParam("index")int index) {
+			
+			try {
+				ary.remove(index);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
 
-	public String save(
-			 @ModelAttribute("day") String day, Model model) {
-		model.addAttribute("day", day);
-		model.addAttribute("list", ary);
-		return "/Team3displayIn";
-	}
+			return "redirect:/Team3displayOut";
+		}
+		
+		@PostMapping("/update")
+		public String update(
+						@ModelAttribute("team3House") Team3House team3House ,
+						@RequestParam("index") int index) {		
+			try {	
+				ary.set(index, team3House);
+			}catch(Exception e) {
+				 e.printStackTrace();
+				 return "Team3Error";
+			}
+			return "redirect:/Team3displayOut";
+		}
+		
+		@PostMapping("/cancel2")
+		public String cancel2() {
+			return "/Team3KalenderIn";
+		}
+		
+		@PostMapping("/save")
+		public String save(
+				 @ModelAttribute("day") String day,
+				@ModelAttribute Team3House team3House, Model model) {
+			try {
+				model.addAttribute("day", day);
+				model.addAttribute("list", ary);
+			}catch(Exception e) {
+				 e.printStackTrace();
+				 return "Team3Error";
+			}
+			return "/Team3displayIn";
+		}
+
 	
+
 
 }
