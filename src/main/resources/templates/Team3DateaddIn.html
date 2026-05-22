@@ -7,7 +7,7 @@
 
 <h2>データ入力</h2>
 
-<form method="post" action="@{/add2}" >
+<form method="post" th:action="@{/add2}" >
     日付: <input type="date" name="date"><br>
     カテゴリ: <input type="text" name="category"><br>
     価格: <input type="number" name="price"><br>
@@ -16,7 +16,9 @@
 </form>
 
 <br>
-<!--<a href="/list">一覧を見る</a>-->
+<!--すでに登録されているデータをテーブルで見る-->
+<a href="/kadai/list">一覧を見る</a>
+
 
 </body>
 </html>
