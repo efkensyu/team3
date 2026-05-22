@@ -8,7 +8,7 @@ public class Team3Calculation {
 	 public int sumPrice(List<Team3House> list) {
 	        int sum = 0;
 	        for (Team3House item : list) {
-	            sum += item.getPrice();
+	            sum += item.getPrice() * item.getQuantity();
 	        }
 	        return sum;
 	 }
