@@ -12,13 +12,13 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 public class Team3Kalender {
 	
 	
-	@GetMapping("/kalender")
+	@GetMapping("/Team3kalender")
 		public String index() {
 			
 			return "Team3KalenderIn";
 		}
 	
-	@PostMapping("/kalender")
+	@PostMapping("/Team3kalender")
 		public String send(@RequestParam("day") String day,Model model) {
 		try {
 			model.addAttribute("day",day);
@@ -30,7 +30,7 @@ public class Team3Kalender {
 		return "Team3displayIn";
 	}
 		
-	@PostMapping("/cancel1")
+	@PostMapping("/Team3cancel1")
 	public String cancel1() {
 		return "/Team3KalenderIn";
 	}
