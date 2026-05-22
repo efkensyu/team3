@@ -7,6 +7,7 @@
 <body>
 
 	<h1 th:text="${day}"></h1>
+	<h2>合計金額：<span th:text="${total}"></span> 円</h2>
 
 	<!--登録した情報がある場合-->
 	<div th:if="${!#lists.isEmpty(list)}">
