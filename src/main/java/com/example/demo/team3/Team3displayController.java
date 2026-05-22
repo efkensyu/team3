@@ -13,7 +13,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import lombok.RequiredArgsConstructor;
-@SessionAttributes({"team3House", "day"})
+
+@SessionAttributes({"team3House","day"})
 @RequiredArgsConstructor
 @Controller	
 public class Team3displayController {
@@ -65,9 +66,12 @@ ArrayList<Team3House> ary = new ArrayList<>();
 	}
 	
 	@PostMapping("/save")
-	public String save(@ModelAttribute("day") String day, Model model) {
+
+	public String save(
+			 @ModelAttribute("day") String day,
+			@ModelAttribute Team3House team3House, Model model) {
 		model.addAttribute("day", day);
-		model.addAttribute("list", ary);
+		model.addAttribute("team3House", team3House);
 		return "/Team3displayIn";
 	}
 	
