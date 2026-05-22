@@ -68,10 +68,9 @@ ArrayList<Team3House> ary = new ArrayList<>();
 	@PostMapping("/save")
 
 	public String save(
-			 @ModelAttribute("day") String day,
-			@ModelAttribute Team3House team3House, Model model) {
+			 @ModelAttribute("day") String day, Model model) {
 		model.addAttribute("day", day);
-		model.addAttribute("team3House", team3House);
+		model.addAttribute("list", ary);
 		return "/Team3displayIn";
 	}
 	
