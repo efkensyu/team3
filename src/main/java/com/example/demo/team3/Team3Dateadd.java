@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.demo.team3.Team3Entity.Team3Expense;
 import com.example.demo.team3.Team3Repository.Team3DateaddRepository;
@@ -22,7 +23,7 @@ public class Team3Dateadd {
     // 入力画面
     @GetMapping("/input")
     public String input() {
-    		System.out.println("a");
+//    		System.out.println("a");
         return "Team3DateaddIn";
         
     }
@@ -37,7 +38,7 @@ public class Team3Dateadd {
                       String category,
                       int price,
                       int amount) {
-    
+//    	データの登録
         Team3Expense e = new Team3Expense();
 
         e.setDate(LocalDate.parse(date));
@@ -45,10 +46,11 @@ public class Team3Dateadd {
         e.setPrice(price);
         e.setAmount(amount);
         //e.setResult(price * amount);
-
+        
+//        データの保存
         repository.save(e);
-        return "Team3DateaddOut";
-//        return "redirect:/list";  // ← ここ重要
+//        return "Team3DateaddOut";
+      return "redirect:/list";  // ← ここ重要
     }
     
 
@@ -61,5 +63,43 @@ public class Team3Dateadd {
         model.addAttribute("expenses", list);
 
         return "Team3DateaddOut";
+    }
+    
+//    削除画面
+    @PostMapping("/delete2")
+    public String delete(@RequestParam int id) {
+    	repository.deleteById(id);
+        return "redirect:/list";
+    }
+    
+//    編集画面
+    @GetMapping("/edit2")
+    public String edit(@RequestParam int id, Model model) {
+
+        Team3Expense e = repository.findById(id).orElse(null);
+
+        model.addAttribute("expense", e);
+
+        return "Team3Edit";
+    }
+    
+//    更新画面
+    @PostMapping("/update2")
+    public String update(@RequestParam int id,
+                         @RequestParam String date,
+                         @RequestParam String category,
+                         @RequestParam int price,
+                         @RequestParam int amount) {
+
+        Team3Expense e = repository.findById(id).orElse(null);
+
+        e.setDate(LocalDate.parse(date));
+        e.setCategory(category);
+        e.setPrice(price);
+        e.setAmount(amount);
+
+        repository.save(e);
+
+        return "redirect:/list";
     }
 }

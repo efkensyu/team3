@@ -1,35 +1,61 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>	
-<meta charset="UTF-8">
-    <title>一覧画面</title>
+
+<head>
+	<meta charset="UTF-8">
+	<title>一覧画面</title>
 </head>
+
 <body>
 
-<h2>一覧</h2>
-<!--<form action="/add2" method="post">-->
-<table border="1">
-    <tr>
-        <th>ID</th>
-        <th>日付</th>
-        <th>カテゴリ</th>
-        <th>価格</th>
-        <th>数量</th>
-        <th>結果</th>
-    </tr>
+	<h2>一覧</h2>
+	<!--<form action="/add2" method="post">-->
+	<table border="1">
+		<tr>
+			<th>ID</th>
+			<th>日付</th>
+			<th>カテゴリ</th>
+			<th>価格</th>
+			<th>数量</th>
+			<th>結果</th>
+			<th>削除</th>
+			<th>編集</th>
 
-    <tr th:each="e : ${expenses}">
-        <td th:text="${e.id}"></td>
-        <td th:text="${e.date}"></td>
-        <td th:text="${e.category}"></td>
-        <td th:text="${e.price}"></td>
-        <td th:text="${e.amount}"></td>
-        <td th:text="${e.result}"></td>
-    </tr>
-</table>
-<!--</form>-->
-<br>
-<!--<a href="/input">入力に戻る</a>-->
+
+		</tr>
+		<!--データを１個ずつ表示する-->
+		<tr th:each="e : ${expenses}">
+			<td th:text="${e.id}"></td>
+			<td th:text="${e.date}"></td>
+			<td th:text="${e.category}"></td>
+			<td th:text="${e.price}"></td>
+			<td th:text="${e.amount}"></td>
+			<td th:text="${e.result}"></td>
+
+			<td>
+				<!--削除-->
+				<form method="post" th:action="@{/delete2}">
+					<input type="hidden" name="id" th:value="${e.id}">
+					<input type="submit" value="削除" onclick="return confirm('削除しても大丈夫ですか？');">
+				</form>
+			</td>
+
+			<td>
+				<!-- 編集 -->
+				<form method="get" th:action="@{/edit2}">
+					<input type="hidden" name="id" th:value="${e.id}">
+					<input type="submit" value="編集">
+				</form>
+			</td>
+		</tr>
+	</table>
+	<!--</form>-->
+	<br>
+	
+<!--	入力画面へ戻る-->
+
+	<a href="/kadai/input">入力に戻る</a>
 
 </body>
+
 </html>
