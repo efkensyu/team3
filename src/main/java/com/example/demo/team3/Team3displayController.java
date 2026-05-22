@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -11,10 +13,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import lombok.RequiredArgsConstructor;
-@SessionAttributes("team3House")
+@SessionAttributes({"team3House", "day"})
 @RequiredArgsConstructor
 @Controller	
-public class Team3HouseController {
+public class Team3displayController {
 	
 	//private final Team3Repository repository;
 ArrayList<Team3House> ary = new ArrayList<>();
@@ -35,8 +37,11 @@ ArrayList<Team3House> ary = new ArrayList<>();
 	}
 	
 	@PostMapping("/add")
-	public String add(@ModelAttribute Team3House team3House) {
+	public String add(@ModelAttribute @Validated Team3House team3House, BindingResult result) {
 		ary.add(team3House);
+		if (result.hasErrors()) {
+			return "/Team3displayOut";
+		}
 		return "redirect:/Team3displayOut";
 	}
 	
@@ -50,20 +55,21 @@ ArrayList<Team3House> ary = new ArrayList<>();
 	
 	
 	public String update(
-					@ModelAttribute("team3House") Team3House team3House ,
-					@RequestParam("index") int index) {
+			@ModelAttribute("team3House") Team3House team3House ,
+			@RequestParam("index") int index) {
 		ary.set(index, team3House);
 		return "redirect:/Team3displayOut";
 	}
 	
-	@PostMapping("/cancel")
-	public String cancel() {
+	@PostMapping("/cancel2")
+	public String cancel2() {
 		return "/Team3KalenderIn";
 	}
 	
 	@PostMapping("/save")
-	public String save(@ModelAttribute Team3House team3House, Model model) {
-		model.addAttribute("team3House", team3House);
+	public String save(@ModelAttribute("day") String day, Model model) {
+		model.addAttribute("day", day);
+		model.addAttribute("list", ary);
 		return "/Team3displayIn";
 	}
 	
