@@ -68,6 +68,7 @@ public class Team3displayController {
 		return "/Team3displayOut";
 	}
 
+
 @PostMapping("/Team3update")
 public String update(
 	@ModelAttribute("team3House") Team3House team3House,
@@ -96,7 +97,6 @@ try {
 public String delete(
         @RequestParam("index") int index,
         Model model) {
-
     try {
         // 削除処理
         ary.remove(index);
@@ -116,7 +116,6 @@ public String delete(
         e.printStackTrace();
         return "Team3Error";
     }
-
     return "/Team3displayOut";
 }
 
@@ -125,7 +124,7 @@ public String delete(
 		return "/Team3KalenderIn";
 	}
 
-	@PostMapping("/Team3save")
+@PostMapping("/Team3save")
 	public String save(
 			@ModelAttribute("day") String day,
 			@ModelAttribute Team3House team3House, Model model) {

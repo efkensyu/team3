@@ -8,9 +8,11 @@
 <!--ここでは、買った商品、値段を入力させてください。-->
 <h1>購入した商品の詳細を入力してください。</h1>
 <br>
+
 <h2>合計金額：<span th:text="${total}"></span> 円</h2>
 <br>
 <form method="post" th:action="@{/Team3add}" th:object="${team3House}">
+
 
 商品名<input type ="text" th:field="*{name}">
 <th:block th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></th:block>
@@ -44,6 +46,7 @@
 		
 	<!--編集ボタン-->
 		<form method="post" th:action="@{/Team3update}">
+
 		<input type="hidden" name="index" th:value="${st.index}">
 		商品名：<input type="text" name="name" th:value="${item.name}">
 		<br>
@@ -59,7 +62,7 @@
 		<input type="submit" value="削除">
 		</form>
 </div>
-<!--ーーーーーーーーーーーーーーーーーーーーー-->
+
 <form method = "post" th:action = "@{/Team3cancel2}">
 <!--キャンセルボタンを押したら、Karenderに飛んでください。-->
 <input type ="submit" name ="cancel2" value = "キャンセル">

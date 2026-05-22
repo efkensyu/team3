@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>入力画面</title>
+</head>
+<body>
+
+<h2>データ入力</h2>
+
+<form method="post" th:action="@{/add2}" >
+    日付: <input type="date" name="date"><br>
+    カテゴリ: <input type="text" name="category"><br>
+    価格: <input type="number" name="price"><br>
+    数量: <input type="number" name="amount"><br>
+    <input type="submit" value ="登録">
+</form>
+
+<br>
+<!--すでに登録されているデータをテーブルで見る-->
+<a href="/kadai/list">一覧を見る</a>
+
+
+</body>
+</html>
