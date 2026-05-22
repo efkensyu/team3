@@ -12,15 +12,17 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+import com.example.demo.team3.Team3Entity.Team3Entity;
+
 import lombok.RequiredArgsConstructor;
 
-@SessionAttributes({ "team3House", "day" })
+@SessionAttributes({ "team3Entity", "day" })
 @RequiredArgsConstructor
 @Controller
-public class Team3displayController {
+public class Team3DisplayController {
 
 	//private final Team3Repository repository;
-	ArrayList<Team3House> ary = new ArrayList<>();
+	ArrayList<Team3Entity> ary = new ArrayList<>();
 
 	//追加ボタンを押したら記入内容が同ファイルにとぶ
 @GetMapping("/Team3displayOut")
@@ -29,19 +31,19 @@ public class Team3displayController {
 			Team3Calculation calc = new Team3Calculation();
 		    int total = calc.sumPrice(ary);
 			
-			model.addAttribute("team3House", new Team3House());
+			model.addAttribute("team3Entity", new Team3Entity());
 			model.addAttribute("ary", ary);
 			model.addAttribute("total", total);
 		} catch (Exception e) {
 			e.printStackTrace();
-			return "Team3Error";
+			return "team3/Error";
 		}
-		return "/Team3displayOut";
+		return "team3/Team3DisplayOut";
 	}
 
 @PostMapping("/Team3add")
 	public String add(
-			@ModelAttribute @Validated Team3House team3House,
+			@ModelAttribute @Validated Team3Entity team3Entity,
 			BindingResult result,
 			Model model) {
 
@@ -56,7 +58,7 @@ public class Team3displayController {
 			return "/Team3displayOut";
 		}
 
-		ary.add(team3House);
+		ary.add(team3Entity);
 
 		// 合計金額を計算して渡す
 		Team3Calculation calc = new Team3Calculation();
@@ -64,19 +66,19 @@ public class Team3displayController {
 
 		model.addAttribute("ary", ary);
 		model.addAttribute("total", total);
-		model.addAttribute("team3House", new Team3House());
-		return "/Team3displayOut";
+		model.addAttribute("team3Entity", new Team3Entity());
+		return "team3/Team3displayOut";
 	}
 
 
 @PostMapping("/Team3update")
 public String update(
-	@ModelAttribute("team3House") Team3House team3House,
+	@ModelAttribute("team3Entity") Team3Entity team3Entity,
 	@RequestParam("index") int index,
 	Model model) {
 try {
 	// 更新処理
-	ary.set(index, team3House);
+	ary.set(index, team3Entity);
 	// 合計金額を計算
 	Team3Calculation calc = new Team3Calculation();
 	int total = calc.sumPrice(ary);
@@ -84,13 +86,13 @@ try {
 	model.addAttribute("ary", ary);
 	model.addAttribute("total", total);
 	// 入力フォームを空に戻す
-	model.addAttribute("team3House", new Team3House());
+	model.addAttribute("team3Entity", new Team3Entity());
 
 } catch (Exception e) {
 	e.printStackTrace();
 	return "Team3Error";
 }
-	return "/Team3displayOut";
+	return "team3/Team3displayOut";
 }
 
 @PostMapping("/Team3delete")
@@ -110,24 +112,24 @@ public String delete(
         model.addAttribute("total", total);
 
         // 入力フォームを空に戻す
-        model.addAttribute("team3House", new Team3House());
+        model.addAttribute("team3Entity", new Team3Entity());
 
     } catch (Exception e) {
         e.printStackTrace();
-        return "Team3Error";
+        return "team3/Error";
     }
-    return "/Team3displayOut";
+    return "team3/Team3displayOut";
 }
 
 @PostMapping("/Team3cancel2")
 	public String cancel2() {
-		return "/Team3KalenderIn";
+		return "team3/Team3KalenderIn";
 	}
 
 @PostMapping("/Team3save")
 	public String save(
 			@ModelAttribute("day") String day,
-			@ModelAttribute Team3House team3House, Model model) {
+			@ModelAttribute Team3Entity team3Entity, Model model) {
 		try {
 			Team3Calculation calc = new Team3Calculation();
 			int total = calc.sumPrice(ary);
@@ -137,9 +139,9 @@ public String delete(
 			model.addAttribute("total", total);
 		} catch (Exception e) {
 			e.printStackTrace();
-			return "Team3Error";
+			return "team3/Error";
 		}
-		return "/Team3displayIn";
+		return "team3/Team3displayIn";
 	}
 
 }

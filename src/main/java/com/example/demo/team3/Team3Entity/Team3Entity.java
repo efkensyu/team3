@@ -1,4 +1,4 @@
-package com.example.demo.team3;
+package com.example.demo.team3.Team3Entity;
 
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
@@ -7,7 +7,7 @@ import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
 @Data
-public class Team3House {
+public class Team3Entity {
 	@NotBlank(message="商品名を入力してください。")
 	private String name;
 	
