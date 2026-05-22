@@ -12,8 +12,12 @@ public class Team3House {
 	private String name;
 	
 	@NotNull(message="値段を入力してください。")
-	@Min(0)
+	@Min(1)
 	private int price;
+	
+	@NotNull(message="個数を入力してください。")
+	@Min(1)
+	private int quantity;
 
 	public String getName() {
 		return name;
@@ -23,6 +27,10 @@ public class Team3House {
 		return price;
 	}
 	
+	public int getQuantity() {
+		return quantity;
+	}
+	
 	public void setName(String name) { 
 		this.name = name;
 	}
@@ -30,4 +38,8 @@ public class Team3House {
     public void setPrice(int price) { 
     		this.price = price; 
     	}
+    
+    public void setQuantity(int quantity) { 
+		this.quantity = quantity; 
+	}
 }

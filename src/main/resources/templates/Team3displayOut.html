@@ -9,9 +9,9 @@
 <h1>購入した商品の詳細を入力してください。</h1>
 <br>
 
-<!--<form method="post" th:action="@{/add}" th:object="${team3House}">-->
-
-<form method="post" th:action="@{/kadai/add}" th:object="${team3House}">
+<h2>合計金額：<span th:text="${total}"></span> 円</h2>
+<br>
+<form method="post" th:action="@{/add}" th:object="${team3House}">
 
 
 商品名<input type ="text" th:field="*{name}">
@@ -19,9 +19,15 @@
 <br>
 値段<input type ="text" th:field="*{price}">円
 <th:block th:if="${#fields.hasErrors('price')}" th:errors="*{price}"></th:block>
+<br>
+個数<input type="text" th:field="*{quantity}">個
+<th:block th:if="${#fields.hasErrors('quantity')}" th:errors="*{quantity}"></th:block>
+<br>
 <!--追加ボタンを作成してください。-->
 <input type ="submit" name ="tuika" value = "追加">
 <!--追加ボタンを押したら、DBに登録してください。-->
+
+<input type="hidden" name="day" th:value="${day}">
 </form>
 
 <!-- データがない場合 -->
@@ -34,7 +40,9 @@
 	
         商品名：<span th:text="${item.name}"></span>
 		<br>
-        値段：<span th:text="${item.price}"></span> 円
+        値段：<span th:text="${item.price}"></span>円
+		<br>
+		個数<span th:text="${item.quantity}"></span>個
 		
 	<!--編集ボタン-->
 		<form method="post" th:action="@{/kadai/update}">
@@ -42,6 +50,8 @@
 		商品名：<input type="text" name="name" th:value="${item.name}">
 		<br>
 		値段：<input type="text" name="price" th:value="${item.price}">
+		<br>
+		個数：<input type="text" name="quantity" th:value="${item.quantity}">
 		<input type="submit" value="更新">
 		</form>
 		

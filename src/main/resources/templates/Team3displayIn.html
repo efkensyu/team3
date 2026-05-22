@@ -7,6 +7,7 @@
 <body>
 
 	<h1 th:text="${day}"></h1>
+	<h2>合計金額：<span th:text="${total}"></span> 円</h2>
 
 	<!--登録した情報がある場合-->
 	<div th:if="${!#lists.isEmpty(list)}">
@@ -14,6 +15,8 @@
 		   商品名:<span th:text="${item.name}"></span>
 		   <br>
 		   値段: <span th:text="${item.price}"></span>円
+		   <br>
+		   個数: <span th:text="${item.quantity}"></span>個
 		</div>
 	
 	</div>	
