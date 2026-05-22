@@ -1,10 +1,18 @@
-package com.example.demo.team3.Team3Entity;
-
+//package com.example.demo.team3.Team3Entity;
+//
+//import java.time.LocalDate;
+//
+//import jakarta.persistence.Entity;
+//import jakarta.persistence.GeneratedValue;
+//import jakarta.persistence.GenerationType;
+//import jakarta.persistence.Id;
+//import jakarta.persistence.Table;
+//
 //@Entity
 //@Table(name = "team3_shohin_tbl")
-
-public class Team3DateEntity {
-		
+//
+//public class Team3DateEntity {
+//		
 //	public class Expense {
 //
 //	    @Id
@@ -62,4 +70,4 @@ public class Team3DateEntity {
 //	        this.result = result;
 //	    }
 //	}
-}
+//}

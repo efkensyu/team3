@@ -8,7 +8,12 @@
 <!--ここでは、買った商品、値段を入力させてください。-->
 <h1>購入した商品の詳細を入力してください。</h1>
 <br>
-<form method="post" th:action="@{/add}" th:object="${team3House}">
+
+<!--<form method="post" th:action="@{/add}" th:object="${team3House}">-->
+
+<form method="post" th:action="@{/kadai/add}" th:object="${team3House}">
+
+
 商品名<input type ="text" th:field="*{name}">
 <th:block th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></th:block>
 <br>
@@ -32,7 +37,7 @@
         値段：<span th:text="${item.price}"></span> 円
 		
 	<!--編集ボタン-->
-		<form method="post" th:action="@{/update}">
+		<form method="post" th:action="@{/kadai/update}">
 		<input type="hidden" name="index" th:value="${st.index}">
 		商品名：<input type="text" name="name" th:value="${item.name}">
 		<br>
@@ -41,18 +46,22 @@
 		</form>
 		
 	<!--削除ボタン-->
-		<form method="post" th:action="@{/delete}">
+		<form method="post" th:action="@{/kadai/delete}">
 		<input type="hidden" name="index" th:value="${st.index}">
 		<input type="submit" value="削除">
 		</form>
 </div>
 <!--ーーーーーーーーーーーーーーーーーーーーー-->
-<form method = "post" th:action = "@{/cancel2}">
+
+<!--<form method = "post" th:action = "@{/cancel2}">-->
+
+<form method = "post" th:action = "@{/kadai/cancel}">
+
 <!--キャンセルボタンを押したら、Karenderに飛んでください。-->
 <input type ="submit" name ="cancel2" value = "キャンセル">
 </form>
 
-<form method = "post" th:action = "@{/save}">
+<form method = "post" th:action = "@{/kadai/save}">
 <!--保存ボタンを押したら、team3displayInに飛んでください。-->
 <input type ="submit" name ="save" value = "保存">
 </form>

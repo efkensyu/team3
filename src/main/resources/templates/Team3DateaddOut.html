@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
+<head>	
+<meta charset="UTF-8">
     <title>一覧画面</title>
 </head>
 <body>
 
 <h2>一覧</h2>
-
+<!--<form action="/add2" method="post">-->
 <table border="1">
     <tr>
         <th>ID</th>
@@ -26,9 +27,9 @@
         <td th:text="${e.result}"></td>
     </tr>
 </table>
-
+<!--</form>-->
 <br>
-<a href="/input">入力に戻る</a>
+<!--<a href="/input">入力に戻る</a>-->
 
 </body>
 </html>
