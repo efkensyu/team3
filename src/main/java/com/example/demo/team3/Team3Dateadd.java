@@ -22,28 +22,35 @@ public class Team3Dateadd {
     // 入力画面
     @GetMapping("/input")
     public String input() {
+    		System.out.println("a");
         return "Team3DateaddIn";
+        
     }
 
     // 登録処理
-    @PostMapping("/add")
+    @PostMapping("/add2")
+//    public String add2() {
+//    		System.out.println("b");
+//    		return "Team3DateaddOut";
+//    }
     public String add(String date,
                       String category,
                       int price,
                       int amount) {
-
+    
         Team3Expense e = new Team3Expense();
 
         e.setDate(LocalDate.parse(date));
         e.setCategory(category);
         e.setPrice(price);
         e.setAmount(amount);
-        e.setResult(price * amount);
+        //e.setResult(price * amount);
 
         repository.save(e);
-
-        return "redirect:/list";  // ← ここ重要
+        return "Team3DateaddOut";
+//        return "redirect:/list";  // ← ここ重要
     }
+    
 
     // 一覧画面
     @GetMapping("/list")

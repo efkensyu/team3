@@ -7,16 +7,16 @@
 
 <h2>データ入力</h2>
 
-<form action="/add" method="post">
+<form method="post" action="@{/add2}" >
     日付: <input type="date" name="date"><br>
     カテゴリ: <input type="text" name="category"><br>
     価格: <input type="number" name="price"><br>
     数量: <input type="number" name="amount"><br>
-    <button type="submit">登録</button>
+    <input type="submit" value ="登録">
 </form>
 
 <br>
-<a href="/list">一覧を見る</a>
+<!--<a href="/list">一覧を見る</a>-->
 
 </body>
 </html>

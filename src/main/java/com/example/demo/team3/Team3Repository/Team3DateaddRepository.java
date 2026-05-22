@@ -6,5 +6,6 @@ import org.springframework.stereotype.Repository;
 
 import com.example.demo.team3.Team3Entity.Team3Expense;
 @Repository
-public interface Team3DateaddRepository extends JpaRepository<Team3Expense, Long> {
+public interface Team3DateaddRepository extends JpaRepository<Team3Expense,Integer> {
+
 }
