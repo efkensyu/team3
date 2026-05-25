@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.ofg">
+
+<head>
+	<meta charset="UTF-8">
+	<title>家計簿新規登録画面</title>
+</head>
+
+<body>
+	<h1>新規登録画面</h1>
+	<form th:action="@{/Team3UserAdd}" method="post" th:object="${loginEntity}">
+
+		<input type="text" name="username" th:field="*{username}">
+		
+		<div th:if="${#fields.hasErrors('username')}"
+		        th:errors="*{username}">
+		   </div>
+
+		<button type="submit">登録</button>
+	</form>
+</body>
+
+</html>

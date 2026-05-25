@@ -5,14 +5,26 @@
 <title>家計簿ログイン画面</title>
 </head>
 <body>
-<form method = "post" th:action = "@{/Team3Login}">
+	
+<form method = "post" th:action = "@{/Team3Login}" th:object="${loginEntity}">
 		<h1>家計簿アプリ</h1>
+		
 	<!--ここには、ユーザー名とパスワードを入力させてください。-->
 		<br>
-		ユーザー名<input type ="text" name ="username">
+		ユーザー名<input type ="text" name="name" th:field="*{username}">
 		<br>
+		
+		<!-- エラーメッセージ -->
+		   <div th:if="${#fields.hasErrors('username')}"
+		        th:errors="*{username}">
+		   </div>
+		   
+		   <br>
+		
 		<!--<input type ="text" name ="password">-->
 		<input type ="submit" value ="ログイン">
+		<a th:href="@{/Team3UserAdd}">新規登録</a>
 	</form>
+	
 </body>
 </html>
