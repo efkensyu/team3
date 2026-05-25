@@ -1,0 +1,98 @@
+form {
+    text-align: center;
+    align-items: center;
+    font-size: 40px;
+}
+
+p {
+    font-size: 70px;
+   display: inline-block;
+  font-family: 'Arial Round', sans-serif; /* 丸みのあるフォント */
+
+  font-weight: bold;
+  color: #e0f7fa; /* 泡のベース色（薄い水色） */
+  
+  /* 文字の内側にグラデーションと光沢をつける */
+  background: linear-gradient(135deg, #2d1afa 0%, #a19af4 50%, #1a06f5 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  
+  /* 泡の立体感を出す影 */
+  filter: drop-shadow(2px 2px 4px rgba(0, 172, 193, 0.3));
+  
+  /* アニメーションの指定 */
+  animation: bubble-float 4s ease-in-out infinite;
+
+    font-family: "HG丸ｺﾞｼｯｸM-PRO", "Hiragino Maru Gothic ProN", "Yu Gothic", sans-serif;
+	display: inline-block; /* 動きを適用するために必要 */
+ 	animation: puka-puka 2s ease-in-out infinite; /* 2秒かけて無限に繰り返す */
+
+}
+
+@keyframes puka-puka {
+  0%, 100% {
+    transform: translateY(0); /* 初期位置 */
+  }
+  50% {
+    transform: translateY(-10px); /* 上に10px移動 */
+  }
+}
+
+
+input {
+    font-size: 40px;
+}
+
+/* 1. ログインボタンのエリアを画面の真ん中に置く設定 */
+.login-container {
+  display: flex;
+  justify-content: center; 
+  align-items: center;     
+  position: relative;
+  width: fit-content;      
+  margin: 0 auto;          
+}
+
+/* 2. ログインボタンの設定 */
+input.rogin {
+  font-size: 30px;
+  margin-top: 5px;
+}
+
+/* 3. チェックボックス本体は非表示 */
+input.nice-checkbox {
+  display: none;
+}
+
+/* 4. 通常時の「ナイスォー!!!」（★足すだけだとここがズレるので、丸ごと上書きが必要です） */
+label.nice-text {
+  position: absolute; /* ボタンに重ねる */
+  top: 50%;
+  left: 50%;
+  /* ボタンの真ん中に配置し、最初はサイズ0、透明にして完全に隠す */
+  transform: translate(-50%, -50%) scale(0);
+  opacity: 0;
+  
+  font-size: 3rem;
+  font-weight: bold;
+  white-space: nowrap; /* 文字の折り返しを防ぐ */
+  pointer-events: none; /* ボタンクリックの邪魔をしない */
+  user-select: none;
+  
+  /* 飛び出すときのスピード設定 */
+  transition:
+    transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.4),
+    opacity 1.2s,
+    color 0.3s;
+}
+
+/* 5. ログインボタンを押している間、または文字をクリックした時に青く斜めに飛び出す */
+input.nice-checkbox:checked ~ label.nice-text,
+input.rogin:active ~ label.nice-text {
+  opacity: 1;
+  /* ボタンの真ん中から、1.4倍に拡大して、上に移動し、斜めに12度傾ける */
+  transform: translate(-50%, -80px) scale(1.4) rotate(-12deg);
+  
+  /* 文字色を青にする */
+  color: #0141c2;
+}

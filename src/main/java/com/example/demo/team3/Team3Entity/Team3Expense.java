@@ -1,7 +1,5 @@
 package com.example.demo.team3.Team3Entity;
 
-
-
 import java.time.LocalDate;
 
 import jakarta.persistence.Column;

@@ -1,0 +1,29 @@
+p {
+    text-align: center;
+    font-size: 70px;
+    margin-bottom: 150px;
+}
+
+.move {
+  display: inline-block;
+  animation: moveText 1s infinite alternate;
+}
+
+@keyframes moveText {
+  from { transform: translateY(0); }
+  to   { transform: translateY(-10px); }
+}
+
+form {
+    text-align: center;
+}
+
+input {
+    font-size: 40px;
+    margin-right: 20px;
+    
+}
+
+input.a {
+    font-size: 30px;
+}
