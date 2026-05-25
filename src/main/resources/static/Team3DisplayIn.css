@@ -1,0 +1,49 @@
+body {
+    text-align: center;
+}
+
+table {
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 30px
+}
+
+p.day {
+    font-size: 30px;
+}
+
+table.th {
+
+    border-style: none;
+    border-bottom: 2px solid black;
+}
+
+
+table.td {
+    border-style: none;
+    border-bottom: 1px solid black;
+    border-spacing: 30px 0px;
+}
+
+table{
+    table-layout: fixed;
+    width: 700px; /* テーブル全体の幅（600pxなどピクセル指定でもOK） */
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+div.not {
+    font-size: 40px;
+    margin-top: 140px;
+}
+
+input.add {
+    font-size: 30px;
+    margin-top: 160px;
+}
+
+div.item {
+    font-size: 25px;
+}
+
+

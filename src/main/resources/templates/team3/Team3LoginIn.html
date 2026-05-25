@@ -1,18 +1,34 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.ofg">
 <head>
+<link rel="stylesheet" type="text/css" href="Team3LoginIn.css">
 <meta charset="UTF-8">
 <title>家計簿ログイン画面</title>
 </head>
 <body>
-<form method = "post" th:action = "@{/Team3Login}">
+<form id="loginForm" method = "post" th:action = "@{/Team3Login}">
 		<h1>家計簿アプリ</h1>
 	<!--ここには、ユーザー名とパスワードを入力させてください。-->
 		<br>
 		ユーザー名<input type ="text" name ="username">
 		<br>
-		<!--<input type ="text" name ="password">-->
-		<input type ="submit" value ="ログイン">
+		<div class="login-container">
+			<input type="checkbox" class="nice-checkbox" id="nice">
+			<input type="button" class="rogin" value="ログイン" onclick="delayedSubmit()">
+			<label for="nice" class="nice-text">ナイスォー!!!</label>
+		</div>
 	</form>
+	
+	<script>
+	function delayedSubmit() {
+	    // チェックボックスを ON にしてナイスォー!!! を表示
+	    document.getElementById("nice").checked = true;
+
+		// ここで 1.2秒遅らせて送信（好きな秒数に変更可）
+	    setTimeout(function() {
+	        document.getElementById("loginForm").submit();
+	    }, 1200);
+	}
+	</script>
 </body>
 </html>

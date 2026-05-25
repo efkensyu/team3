@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
+<link rel="stylesheet" type="text/css" href="Team3DisplayOut.css">
 <meta charset="UTF-8">
 <title>家計簿の追加や編集、削除画面</title>
 </head>
@@ -14,13 +15,13 @@
 <form method="post" th:action="@{/Team3add}" th:object="${team3Entity}">
 
 
-商品名<input type ="text" th:field="*{name}">
+商品名:<input type ="text" th:field="*{name}">
 <th:block th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></th:block>
 <br>
-値段<input type ="text" th:field="*{price}">円
+値段:<input type ="text" th:field="*{price}">円
 <th:block th:if="${#fields.hasErrors('price')}" th:errors="*{price}"></th:block>
 <br>
-個数<input type="text" th:field="*{quantity}">個
+個数:<input type="text" th:field="*{quantity}">個
 <th:block th:if="${#fields.hasErrors('quantity')}" th:errors="*{quantity}"></th:block>
 <br>
 <!--追加ボタンを作成してください。-->
@@ -38,21 +39,21 @@
 <!-- データがある場合 -->
 <div th:each="item, st : ${ary}">
 	
-        商品名：<span th:text="${item.name}"></span>
+        商品名:<span th:text="${item.name}"></span>
 		<br>
-        値段：<span th:text="${item.price}"></span>円
+        値段:<span th:text="${item.price}"></span>円
 		<br>
-		個数<span th:text="${item.quantity}"></span>個
+		個数:<span th:text="${item.quantity}"></span>個
 		
 	<!--編集ボタン-->
 		<form method="post" th:action="@{/Team3update}">
 
 		<input type="hidden" name="index" th:value="${st.index}">
-		商品名：<input type="text" name="name" th:value="${item.name}">
+		商品名:<input type="text" name="name" th:value="${item.name}">
 		<br>
-		値段：<input type="text" name="price" th:value="${item.price}">
+		値段:<input type="text" name="price" th:value="${item.price}">
 		<br>
-		個数：<input type="text" name="quantity" th:value="${item.quantity}">
+		個数:<input type="text" name="quantity" th:value="${item.quantity}">
 		<input type="submit" value="更新">
 		</form>
 		
