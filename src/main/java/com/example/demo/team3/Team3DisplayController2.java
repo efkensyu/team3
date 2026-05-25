@@ -19,7 +19,7 @@ import lombok.RequiredArgsConstructor;
 @SessionAttributes({ "team3Entity", "day" })
 @RequiredArgsConstructor
 @Controller
-public class Team3DisplayController {
+public class Team3DisplayController2 {
 
 	//private final Team3Repository repository;
 	ArrayList<Team3Entity> ary = new ArrayList<>();
