@@ -1,4 +1,4 @@
-package com.example.demo.team3.Team3Entity;
+package com.example.demo.team3.trash;
 
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;

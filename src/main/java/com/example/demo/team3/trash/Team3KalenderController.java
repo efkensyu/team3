@@ -1,5 +1,5 @@
 
-package com.example.demo.team3;
+package com.example.demo.team3.trash;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

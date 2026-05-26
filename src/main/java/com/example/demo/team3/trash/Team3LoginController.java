@@ -1,4 +1,4 @@
-package com.example.demo.team3;
+package com.example.demo.team3.trash;
 
 import jakarta.validation.Valid;
 
@@ -10,9 +10,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
-
-import com.example.demo.team3.Team3Entity.LoginEntity;
-import com.example.demo.team3.Team3Repository.Team3LoginRepository;
 
 
 @Controller

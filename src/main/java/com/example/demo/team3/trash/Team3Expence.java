@@ -1,4 +1,4 @@
-package com.example.demo.team3;
+package com.example.demo.team3.trash;
 
 import java.util.List;
 
