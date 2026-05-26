@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.ofg">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <link rel="stylesheet" type="text/css" href="Team3KalenderIn.css">
 <meta charset="UTF-8">
@@ -7,9 +7,10 @@
 </head>
 <body>
 	<h1>日付を選択してください</h1>
-<form method="post" th:action="@{/Team3kalender}" >	
+<form method="post" th:action="@{/Team3kalender}" th:object="${team3DayEntity}">	
 <!--	カレンダーの機能追加-->
- <input type="date" name="day">
+<input type="date" th:field="*{day}">
+        <div th:if="${#fields.hasErrors('day')}" th:errors="*{day}"></div>
 	<input type="submit" value="確定">	
 
 </form>	
