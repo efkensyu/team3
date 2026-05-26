@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<link rel="stylesheet" type="text/css" href="Team3DisplayOut.css">
+<link rel="stylesheet" type="text/css" href="team3/Team3DisplayOut.css">
 <meta charset="UTF-8">
 <title>家計簿の追加や編集、削除画面</title>
 </head>
@@ -12,48 +12,74 @@
 
 <h2>合計金額：<span th:text="${total}"></span> 円</h2>
 <br>
-<form method="post" th:action="@{/Team3add}" th:object="${team3Entity}">
-
-
-商品名:<input type ="text" th:field="*{name}">
-<th:block th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></th:block>
-<br>
-値段:<input type ="text" th:field="*{price}">円
-<th:block th:if="${#fields.hasErrors('price')}" th:errors="*{price}"></th:block>
-<br>
-個数:<input type="text" th:field="*{quantity}">個
-<th:block th:if="${#fields.hasErrors('quantity')}" th:errors="*{quantity}"></th:block>
-<br>
-<!--追加ボタンを作成してください。-->
-<input type ="submit" name ="tuika" value = "追加">
-<!--追加ボタンを押したら、DBに登録してください。-->
-
-<input type="hidden" name="day" th:value="${day}">
-</form>
 
 <!-- データがない場合 -->
 <div th:if="${#lists.isEmpty(ary)}">
     まだ登録がありません
 </div>
 
+<form method="post" th:action="@{/Team3add}" th:object="${team3Entity}">
+
+	<div class="item-name">
+		商品名:<input type ="text" th:field="*{name}">
+		<th:block th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></th:block>
+	</div>
+	<br>
+	
+	<div class="item-name">
+		値段:<input type ="text" th:field="*{price}">円
+		<th:block th:if="${#fields.hasErrors('price')}" th:errors="*{price}"></th:block>
+	</div>
+	<br>
+	
+	<div class="item-quantity">
+		個数:<input type="text" th:field="*{quantity}">個
+		<th:block th:if="${#fields.hasErrors('quantity')}" th:errors="*{quantity}"></th:block>
+	</div>
+	
+<br>
+<!--追加ボタンを作成してください。-->
+<input type ="submit" value = "追加">
+<hr class="item-line">
+<!--追加ボタンを押したら、DBに登録してください。-->
+
+<input type="hidden" name="day" th:value="${day}">
+</form>
+
 <!-- データがある場合 -->
 <div th:each="item, st : ${ary}">
-	
+    
+    <div class="item-name">
         商品名:<span th:text="${item.name}"></span>
-		<br>
+    </div>
+
+    <div class="item-price">
         値段:<span th:text="${item.price}"></span>円
-		<br>
-		個数:<span th:text="${item.quantity}"></span>個
+    </div>
+
+    <div class="item-quantity">
+        個数:<span th:text="${item.quantity}"></span>個
+    </div>
+	<hr class="item-line2">
 		
 	<!--編集ボタン-->
 		<form method="post" th:action="@{/Team3update}">
 
 		<input type="hidden" name="index" th:value="${st.index}">
+		<div class="item-name">
 		商品名:<input type="text" name="name" th:value="${item.name}">
+		</div>
 		<br>
-		値段:<input type="text" name="price" th:value="${item.price}">
+		
+		<div class="item-name">
+		値段:<input type="text" name="price" th:value="${item.price}">円
+		</div>
 		<br>
-		個数:<input type="text" name="quantity" th:value="${item.quantity}">
+		
+		<div class="item-quantity">
+		個数:<input type="text" name="quantity" th:value="${item.quantity}">個
+		</div>
+		
 		<input type="submit" value="更新">
 		</form>
 		
@@ -61,8 +87,10 @@
 		<form method="post" th:action="@{/Team3delete}">
 		<input type="hidden" name="index" th:value="${st.index}">
 		<input type="submit" value="削除">
+		<hr class="item-line">
 		</form>
 </div>
+
 
 <form method = "post" th:action = "@{/Team3cancel2}">
 <!--キャンセルボタンを押したら、Karenderに飛んでください。-->
