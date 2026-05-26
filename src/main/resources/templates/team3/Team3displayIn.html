@@ -1,37 +1,47 @@
 <!DOCTYPE html>
 <html xmlns:th="https://www.thymeleaf.org">
 <head>
-<link rel="stylesheet" type="text/css" href="Team3DisplayIn.css">
 <meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="team3/Team3DisplayIn.css">
 <title>家計簿カレンダー画面</title>
 </head>
 <body>
 
 	<h1 th:text="${day}"></h1>
 	<h2>合計金額：<span th:text="${total}"></span> 円</h2>
-
-	<!--登録した情報がある場合-->
-	<div th:if="${!#lists.isEmpty(list)}">
-		<div th:each="item : ${list}">
-		   商品名:<span th:text="${item.name}"></span>
-		   <br>
-		   値段: <span th:text="${item.price}"></span>円
-		   <br>
-		   個数: <span th:text="${item.quantity}"></span>個
-		</div>
+	<hr class="item-line">
 	
-	</div>	
 	<!--何も登録していない場合	-->
 	<div th:if="${#lists.isEmpty(list)}">
 	    なにも登録されていません
+	</div>
+
+	<!--登録した情報がある場合-->
+	
+	<div class="item-container" th:if="${!#lists.isEmpty(list)}">
+		<div class="item" th:each="item : ${list}">
+			<div class="item-name">
+			    商品名：<span th:text="${item.name}"></span>
+			</div>
+	
+			<div class="item-price">
+			    値段：<span th:text="${item.price}"></span> 円
+			</div>
+	
+			<div class="item-quantity">
+			    個数：<span th:text="${item.quantity}"></span> 個
+			</div>
+			
+			<hr class="item-line">
+		</div>		
 	</div>	
 	
-	<form method="get" th:action="@{Team3displayOut}" th:object="${team3Entity}">
+	<form class="button" method="get" th:action="@{Team3displayOut}" th:object="${team3Entity}">
 	<!--Javaファイルに入力情報を渡す-->
 	<input type="submit" value="追加">	
 	</form>
 	
-	<form method = "post" th:action = "@{/Team3cancel1}">
+	<form class="cancel" method = "post" th:action = "@{/Team3cancel1}">
 	<!--キャンセルボタンを押したら、Karenderに飛んでください。-->
 	<input type ="submit" name ="cancel1" value = "戻る">
 	</form>	

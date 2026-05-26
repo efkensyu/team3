@@ -55,7 +55,7 @@ public class Team3DisplayController {
 			int total = calc.sumPrice(ary);
 			model.addAttribute("total", total);
 
-			return "/Team3displayOut";
+			return "team3/Team3displayOut";
 		}
 
 		ary.add(team3Entity);

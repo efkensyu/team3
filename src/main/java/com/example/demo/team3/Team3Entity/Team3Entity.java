@@ -8,14 +8,14 @@ import lombok.Data;
 
 @Data
 public class Team3Entity {
-	@NotBlank(message="商品名を入力してください。")
+	@NotBlank(message="商品名を入力してください")
 	private String name;
 	
-	@NotNull(message="値段を入力してください。")
+	@NotNull(message="値段を入力してください")
 	@Min(1)
 	private int price;
 	
-	@NotNull(message="個数を入力してください。")
+	@NotNull(message="個数を入力してください")
 	@Min(1)
 	private int quantity;
 

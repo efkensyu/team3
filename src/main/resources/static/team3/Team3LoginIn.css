@@ -1,3 +1,7 @@
+body {
+	background-color: #e0f7fa;
+}
+
 form {
     text-align: center;
     align-items: center;
@@ -12,10 +16,10 @@ p {
   font-weight: bold;
   color: #e0f7fa; /* 泡のベース色（薄い水色） */
   
-  /* 文字の内側にグラデーションと光沢をつける */
-  background: linear-gradient(135deg, #2d1afa 0%, #a19af4 50%, #1a06f5 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+/*   文字の内側にグラデーションと光沢をつける */
+/*  background: linear-gradient(135deg, #2d1afa 0%, #a19af4 50%, #1a06f5 100%);*/
+/*  -webkit-background-clip: text;*/
+/*  -webkit-text-fill-color: transparent;*/
   
   /* 泡の立体感を出す影 */
   filter: drop-shadow(2px 2px 4px rgba(0, 172, 193, 0.3));

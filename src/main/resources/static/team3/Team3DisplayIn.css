@@ -1,0 +1,62 @@
+body {
+    text-align: left;
+	background-color: #e0f7fa;
+}
+
+h1,
+h2 {
+    text-align: center;
+	font-size: 30px; 
+}
+
+table {
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 30px
+}
+
+table.th {
+
+    border-style: none;
+    border-bottom: 2px solid black;
+}
+
+
+table.td {
+    border-style: none;
+    border-bottom: 1px solid black;
+    border-spacing: 30px 0px;
+}
+
+table{
+    table-layout: fixed;
+    width: 700px;  
+/*	テーブル全体の幅（600pxなどピクセル指定でもOK） */
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+input {
+    font-size: 30px;
+}
+
+.item {
+	width: 100%;
+	text-align: left;
+}
+
+
+.item-name,
+.item-price,
+.item-quantity {
+    font-size: 28px;       
+/*	遠くからでも見やすい大きさ */
+    margin-bottom: 8px;    
+/*	少し余白 */
+}
+
+.item-line {
+    border: 1px solid black;
+    margin: 10px 0;
+}
+
