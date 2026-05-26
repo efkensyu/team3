@@ -29,7 +29,7 @@ public class Team3Dateadd {
     @GetMapping("/input")
     public String input(@RequestParam(required = false) String date, Model model) {
     		
-    	
+    	try {
 //    		model.addAttribute("date",date);
     	   Team3Expense e = new Team3Expense();
 
@@ -42,6 +42,10 @@ public class Team3Dateadd {
 
     	    model.addAttribute("team3Expense", e);
     	    model.addAttribute("date", date);
+    	}catch(Exception e) {
+			 e.printStackTrace();
+			 return "team3/Team3Error";
+		}
         return "team3/Team3DateaddIn";
         
     }
@@ -80,9 +84,10 @@ public class Team3Dateadd {
     
 
     // 一覧画面
+    //これが初め
     @GetMapping("/list")
     public String list(@RequestParam(required = false) String date, Model model) {
-
+    	try {
         if (date == null || date.isEmpty()) {
             return "team3/Team3Dateselect";
         }
@@ -96,7 +101,11 @@ public class Team3Dateadd {
         model.addAttribute("expenses", list);
         model.addAttribute("date", localDate);
         model.addAttribute("total", total);
-
+        
+    	} catch (Exception e) {
+			e.printStackTrace();
+			return "team3/Team3Error";
+	}
         return "team3/Team3DateaddOut";
     }
     
@@ -110,11 +119,14 @@ public class Team3Dateadd {
 //    編集画面
     @GetMapping("/edit2")
     public String edit(@RequestParam int id, Model model) {
-
+    	try {
         Team3Expense e = repository.findById(id).orElse(null);
 
         model.addAttribute("expense", e);
-
+    	} catch (Exception e) {
+			e.printStackTrace();
+			return "team3/Team3Error";
+	}
         return "team3/Team3Edit";
     }
     
@@ -125,7 +137,7 @@ public class Team3Dateadd {
                          @RequestParam String category,
                          @RequestParam int price,
                          @RequestParam int amount) {
-
+    	try {
         Team3Expense e = repository.findById(id).orElse(null);
 
         e.setDate(LocalDate.parse(date));
@@ -134,7 +146,11 @@ public class Team3Dateadd {
         e.setAmount(amount);
 
         repository.save(e);
-
+        
+    	} catch (Exception e) {
+			e.printStackTrace();
+			return "team3/Team3Error";
+	}
         return "redirect:/list?date=" + date;
     }
     
@@ -145,7 +161,7 @@ public class Team3Dateadd {
                               @RequestParam String category,
                               @RequestParam int price,
                               @RequestParam int amount) {
-
+    	try {
         Team3Expense e = repository.findById(id).orElse(null);
 //        値を保持するためそれぞれ代入
         if (e != null) {
@@ -156,14 +172,17 @@ public class Team3Dateadd {
 
             repository.save(e);
         }
-
+    	} catch (Exception e) {
+			e.printStackTrace();
+			return "team3/Team3Error";
+	}
         return "redirect:/list?date=" + date;
     }
     
 //    グラフの表示
     @GetMapping("/chart")
     public String chart(@RequestParam String date, Model model) {
-
+    	try {
         LocalDate localDate = LocalDate.parse(date);
 
         List<Team3Expense> list = repository.findByDate(localDate);
@@ -179,7 +198,10 @@ public class Team3Dateadd {
 
         model.addAttribute("map", map);
         model.addAttribute("date", date);
-
+    	} catch (Exception e) {
+			e.printStackTrace();
+			return "team3/Team3Error";
+	}
         return "team3/Team3Chart";
     }
 }
