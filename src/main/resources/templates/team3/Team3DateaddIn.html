@@ -7,17 +7,31 @@
 
 <h2>データ入力</h2>
 
-<form method="post" th:action="@{/add2}" >
-    日付: <input type="date" name="date"><br>
-    カテゴリ: <input type="text" name="category"><br>
-    価格: <input type="number" name="price"><br>
-    数量: <input type="number" name="amount"><br>
+<form method="post" th:action="@{/add2}" th:object="${team3Expense}">
+	
+	<input type="hidden"  th:field="*{date}">
+	<br>
+    カテゴリー: 
+	<input type="text" th:field="*{category}">
+	<div th:errors="*{category}" style="color:red"></div>
+	<br>
+	
+    価格: 
+	<input type="number" th:field="*{price}">
+	<div th:errors="*{price}" style="color:red"></div>
+	<br>
+	
+    数量:
+	 <input type="number" th:field="*{amount}">
+	 <div th:errors="*{amount}" style="color:red"></div>
+	 <br>
+	 
     <input type="submit" value ="登録">
 </form>
 
 <br>
 <!--すでに登録されているデータをテーブルで見る-->
-<a href="/kadai/list">一覧を見る</a>
+<a th:href="@{/list(date=${date})}">一覧を見る</a>
 
 
 </body>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>日付選択</title>
+</head>
+<body>
+
+<h2>日付を選択してください</h2>
+
+<form method="get" th:action="@{/list}">
+    <input type="date" name="date">
+    <input type="submit" value="表示">
+</form>
+
+</body>
+</html>

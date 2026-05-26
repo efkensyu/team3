@@ -14,7 +14,19 @@
 	    価格: <input type="number" name="price" th:value="${expense.price}"><br>
 	    数量: <input type="number" name="amount" th:value="${expense.amount}"><br>
 
-	    <input type="submit" value="更新">
+	    <input type="submit" value="保存して戻る">
 	</form>
+	
+<!-- 保存 -->
+<!--	<form method="post" th:action="@{/saveAndBack}">-->
+<!--	    <input type="hidden" name="id" th:value="${expense.id}">-->
+<!--	    <input type="hidden" name="date" th:value="${expense.date}">-->
+<!--	    <input type="hidden" name="category" th:value="${expense.category}">-->
+<!--	    <input type="hidden" name="price" th:value="${expense.price}">-->
+<!--	    <input type="hidden" name="amount" th:value="${expense.amount}">-->
+
+<!--	    <button type="submit">更新</button>-->
+<!--	</form>-->
+<a href="/kadai/list">日付選択に戻る</a>
 </body>
 </html>
