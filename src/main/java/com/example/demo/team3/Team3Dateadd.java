@@ -15,11 +15,13 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.example.demo.team3.Team3Entity.Team3Expense;
 import com.example.demo.team3.Team3Repository.Team3DateaddRepository;
 
 @Controller
+@SessionAttributes("date")
 public class Team3Dateadd {
 
     @Autowired
@@ -86,11 +88,22 @@ public class Team3Dateadd {
     // 一覧画面
     //これが初め
     @GetMapping("/list")
-    public String list(@RequestParam(required = false) String date, Model model) {
+    public String list(@RequestParam(required = false) String date,  Model model) {
     	try {
+    		model.addAttribute("today",LocalDate.now());
         if (date == null || date.isEmpty()) {
             return "team3/Team3Dateselect";
         }
+        
+//        if(date.length() > 10) {
+//
+//            model.addAttribute("error",
+//                    "正しい日付を入力してください");
+//
+//            model.addAttribute("date", date);
+//
+//            return "team3/Team3Dateselect";
+//        }
 
         LocalDate localDate = LocalDate.parse(date);
 
