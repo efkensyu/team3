@@ -1,16 +1,52 @@
-body {
-	background: linear-gradient(#ffffff, #b2ebf2);
-    height: 100vh;        /* ← 画面全体を使う */
-    margin-left: 20;            /* ← 余白を消す */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+div.content{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
 }
 
+h1.easy {
+	
+  font-size: 50px;
+  font-weight: bold;
+  display: inline-block;
+  transform: rotate(-20deg);
+  position: relative;                
+  top: 10px;   
+  color: rgb(33, 18, 171);
+  margin-right: 250px;             
 
-h1 {
-	font-size: 50px;
+  /* アニメーション時間を1秒にして、緩急を「最初早く、後半ゆっくり」に変更 */
+  animation: jumpMegaOut 1.0s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+/* 動きの定義 */
+@keyframes jumpMegaOut {
+  0% {
+    /* 最初：画面の右下から、小さく、傾いた状態でスタート */
+    transform: translate(50px, 50px) scale(0.3) rotate(-20deg);
+    opacity: 0;
+  }
+  50% {
+    /* 中間（飛び出し）：左上に移動しながら、通常の3倍（超巨大）に拡大！ */
+    transform: translate(-30px, -40px) scale(2.0) rotate(-20deg);
+    opacity: 1; /* ここで完全に不透明になる */
+  }
+  100% {
+    /* 最後：定位置（0, 0）に戻り、サイズも等倍（1.0）に着地 */
+    transform: translate(0, 0) scale(1.0) rotate(-20deg);
+  }
+}
+
+h1.kakeibo {
+	font-size: 80px;
+	margin-top: 0;
+	color:rgb(33, 18, 171)
+}
+
+h2{
+	margin-top: 0;
 }
 
 p {
@@ -19,7 +55,23 @@ p {
     margin-bottom: 150px;
 }
 
-.move {
+p.move {
+	 display: inline-block;
+	font-family: 'Arial Round', sans-serif; /* 丸みのあるフォント */
+
+	font-weight: bold;
+	color: #e0f7fa; /* 泡のベース色（薄い水色） */
+
+	/* 文字の内側にグラデーションと光沢をつける */
+	background: linear-gradient(135deg, #2d1afa 0%, #a19af4 50%, #1a06f5 100%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+
+	/* 泡の立体感を出す影 */
+	filter: drop-shadow(2px 2px 4px rgba(0, 172, 193, 0.3));
+
+
+	  font-family: "HG丸ｺﾞｼｯｸM-PRO", "Hiragino Maru Gothic ProN", "Yu Gothic", sans-serif;
   display: inline-block;
   animation: moveText 1s infinite alternate;
 }
@@ -41,4 +93,37 @@ input {
 
 input.a {
     font-size: 30px;
+}
+
+/* 1. 上のバー） */
+div.fixed-bar-top {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 30px 0;
+  background-color: #dbe4fb;  /* バーの色 */
+  z-index: 10;                /* 文字より手前に表示 */
+}
+
+/* 2. 下のバー */
+div.fixed-bar-bottom {
+  position: fixed;
+  bottom: 0;                  /* 画面の下端に固定 */
+  left: 0;
+  width: 100%;
+  padding: 30px 0;
+  background-color: #dbe4fb;  /* バーの色 */
+  z-index: 10;                /* 文字より手前に表示 */
+}
+
+/* 3. 文字エリア（上下のバーを避ける） */
+div.content {
+  /* バーの高さ（40px）より大きな余白を上下に作って文字を避ける */
+  padding-top: 60px;    
+  padding-bottom: 60px; 
+  padding-left: 20px;   /* 左右の見やすさ用の余白 */
+  padding-right: 20px;
+
+  margin-bottom: 140px; 
 }
