@@ -1,6 +1,13 @@
 body {
-	background-color: #e0f7fa;
+	background: linear-gradient(#ffffff, #b2ebf2);
+    height: 100vh;        /* ← 画面全体を使う */
+    margin-left: 20;            /* ← 余白を消す */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
+
 
 h1 {
 	font-size: 50px;
@@ -8,7 +15,7 @@ h1 {
 
 p {
     text-align: center;
-    font-size: 70px;
+    font-size: 60px;
     margin-bottom: 150px;
 }
 

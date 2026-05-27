@@ -5,9 +5,11 @@
     <title>円グラフ</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
+<link rel="stylesheet" type="text/css" href="team3/Team3Chart.css">
+
 <body>
 
-<h2 th:text="${date} + ' の内訳'"></h2>
+<h1 th:text="${date} + ' の内訳'"></h1>
 
 <div style="width:500px; margin:auto">
 	<canvas id="pieChart"></canvas>
@@ -33,7 +35,7 @@
 
 <br>
 
-<a th:href="@{/list(date=${date})}">
+<a class="back" th:href="@{/list(date=${date})}">
 <!--DateaddOutにもどる-->
     戻る
 </a>

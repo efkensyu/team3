@@ -4,15 +4,31 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
+<link rel="stylesheet" type="text/css" href="team3/Team3Edit.css">
 <body>
 <!--	編集画面-->
 	<form method="post" th:action="@{/update2}">
 	    <input type="hidden" name="id" th:value="${expense.id}">
 
-	    日付: <input type="date" name="date" th:value="${expense.date}"><br>
-	    カテゴリ: <input type="text" name="category" th:value="${expense.category}"><br>
-	    価格: <input type="number" name="price" th:value="${expense.price}"><br>
-	    数量: <input type="number" name="amount" th:value="${expense.amount}"><br>
+		<div class="item-date">
+	    日付: <br>
+		<input type="date" name="date" th:value="${expense.date}"><br>
+		</div>
+		
+		<div class="item-category">
+	    カテゴリ: <br>
+		<input type="text" name="category" th:value="${expense.category}"><br>
+		</div>
+		
+		<div class="item-price">
+	    価格: <br>
+		<input type="number" name="price" th:value="${expense.price}"><br>
+		</div>
+		
+		<div class="item-amount">
+	    数量: <br>
+		<input type="number" name="amount" th:value="${expense.amount}"><br>
+		</div>
 
 	    <input type="submit" value="保存して戻る">
 	</form>
@@ -27,6 +43,6 @@
 
 <!--	    <button type="submit">更新</button>-->
 <!--	</form>-->
-<a href="/kadai/list">日付選択に戻る</a>
+<a class="back" href="/list">日付選択に戻る</a>
 </body>
 </html>

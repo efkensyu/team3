@@ -13,21 +13,21 @@
 	<input type="hidden"  th:field="*{date}">
 	<br>
 	<div class="item-category">
-    カテゴリー: 
+    カテゴリー: <br>
 	<input type="text" th:field="*{category}">
 	<div th:errors="*{category}" style="color:red"></div>
 	</div>
 	<br>
 
 	<div class="item-price">
-    価格: 
+    価格: <br>
 	<input type="number" th:field="*{price}">
 	<div th:errors="*{price}" style="color:red"></div>
 	</div>
 	<br>
 	
 	<div class="item-amount">
-    数量:
+    数量: <br>
 	 <input type="number" th:field="*{amount}">
 	 <div th:errors="*{amount}" style="color:red"></div>
 	 </div>
