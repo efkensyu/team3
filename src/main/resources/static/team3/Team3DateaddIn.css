@@ -1,0 +1,25 @@
+body {
+    text-align: left;
+	background-color: #e0f7fa;
+}
+
+h1,
+h2 {
+    text-align: center;
+	font-size: 30px; 
+}
+
+input {
+    font-size: 30px;
+}
+
+.item-category,
+.item-price,
+.item-amount {
+    font-size: 28px;       
+/*	遠くからでも見やすい大きさ */
+    margin-bottom: 8px;    
+/*	少し余白 */
+}
+
+

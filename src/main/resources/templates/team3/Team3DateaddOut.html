@@ -8,10 +8,10 @@
 
 <body>
 
-	<h2 th:text="${date}"></h2>
-	<h3 th:if="${!#lists.isEmpty(expenses)}">
+	<h1 th:text="${date}"></h1>
+	<h2 th:if="${!#lists.isEmpty(expenses)}">
 	    合計金額：<span th:text="${total}"></span> 円
-	</h3>
+	</h2>
 	
 	<!--	グラフ表示のためのリンク追加-->
 	<a th:href="@{/chart(date=${date})}">
@@ -61,9 +61,9 @@
 		</table>
 
 		<!-- データが0件のとき -->
-		<p th:if="${#lists.isEmpty(expenses)}">
+		<h3 th:if="${#lists.isEmpty(expenses)}">
 		    何も登録されていません
-		</p>
+		</h3>
 <!--		入力ボタンの追加-->
 		<a th:href="@{/input(date=${date})}">
 		    <button type="button">＋追加</button>
@@ -72,9 +72,6 @@
 
 	<a href="/kadai/list">日付選択に戻る</a>
 	
-	
-
-
 </body>
 
 </html>

@@ -3,6 +3,7 @@
 <head>
     <title>入力画面</title>
 </head>
+<link rel="stylesheet" type="text/css" href="team3/Team3DateaddIN.css">
 <body>
 
 <h2>データ入力</h2>
@@ -11,19 +12,25 @@
 	
 	<input type="hidden"  th:field="*{date}">
 	<br>
+	<div class="item-category">
     カテゴリー: 
 	<input type="text" th:field="*{category}">
 	<div th:errors="*{category}" style="color:red"></div>
+	</div>
 	<br>
-	
+
+	<div class="item-price">
     価格: 
 	<input type="number" th:field="*{price}">
 	<div th:errors="*{price}" style="color:red"></div>
+	</div>
 	<br>
 	
+	<div class="item-amount">
     数量:
 	 <input type="number" th:field="*{amount}">
 	 <div th:errors="*{amount}" style="color:red"></div>
+	 </div>
 	 <br>
 	 
     <input type="submit" value ="登録">
