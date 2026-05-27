@@ -2,7 +2,10 @@ body {
     background: linear-gradient(#ffffff, #b2ebf2);
     height: 100vh;        /* ← 画面全体を使う */
     margin-left: 20;            /* ← 余白を消す */
-	text-align:left
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
 
 h1,
