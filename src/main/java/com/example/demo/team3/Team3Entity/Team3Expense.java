@@ -13,6 +13,7 @@ import jakarta.persistence.Table;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.PastOrPresent;
 
 @Entity
 @Table(name = "team3_syohin_tbl")
@@ -22,18 +23,18 @@ public class Team3Expense {
 @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
-	@Max(value=9999,message = "正しい値を入力してください")
+	@PastOrPresent(message = "商品名は必須です")
 	private LocalDate date;
 
 	@NotBlank(message = "商品名は必須です")
 	private String category;
 	
 	@Min(value=1,message = "価格を１以上の値で入力してください")
-	@Max(value=1000000000,message = "価格は100億円以下の値を入力してください")
+	@Max(value=10000,message = "価格は100億円以下の値を入力してください")
 	private int price;
 	
 	@Min(value=1,message="数量は１以上を入力してください")
-	@Max(value=1000000000,message = "価格は100億個以下の値を入力してください")
+	@Max(value=10000,message = "価格は100億個以下の値を入力してください")
 	private int amount;
 	
 	@Column(name="result",insertable = false,updatable=false)

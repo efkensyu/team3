@@ -11,9 +11,16 @@
 <h2>日付を選択してください</h2>
 
 <form method="get" th:action="@{/list}">
-    <input type="date" name="date">
+    <input type="date" name="date" th:value="${date}"
+		th:max="${today}">
+	
     <input type="submit" value="表示">
 </form>
+
+<!--<div th:if="${error}"-->
+<!--     th:text="${error}"-->
+<!--     style="color:red">-->
+<!--</div>-->
 
 <p class="move">今日の家計簿をつけましょう</p>
 </body>
