@@ -15,7 +15,8 @@ h1.easy {
   position: relative;                
   top: 10px;   
   color: rgb(33, 18, 171);
-  margin-right: 250px;             
+  margin-right: 250px; 
+  margin-bottom: 0;            
 
   /* アニメーション時間を1秒にして、緩急を「最初早く、後半ゆっくり」に変更 */
   animation: jumpMegaOut 1.0s cubic-bezier(0.25, 1, 0.5, 1) forwards;
@@ -27,15 +28,18 @@ h1.easy {
     /* 最初：画面の右下から、小さく、傾いた状態でスタート */
     transform: translate(50px, 50px) scale(0.3) rotate(-20deg);
     opacity: 0;
+	z-index: 1;
   }
   50% {
     /* 中間（飛び出し）：左上に移動しながら、通常の3倍（超巨大）に拡大！ */
     transform: translate(-30px, -40px) scale(2.0) rotate(-20deg);
     opacity: 1; /* ここで完全に不透明になる */
+	z-index: 9999;
   }
   100% {
     /* 最後：定位置（0, 0）に戻り、サイズも等倍（1.0）に着地 */
     transform: translate(0, 0) scale(1.0) rotate(-20deg);
+	z-index: -1;
   }
 }
 
