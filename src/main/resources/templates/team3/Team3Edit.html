@@ -7,26 +7,35 @@
 <link rel="stylesheet" type="text/css" href="team3/Team3Edit.css">
 <body>
 <!--	編集画面-->
+<!-- 上に固定するバー -->
+<div class="fixed-bar-top">
+	</div>
+
+<!-- 下に固定するバー -->
+<div class="fixed-bar-bottom"></div>
+
+<div class="content">
+	
 	<form method="post" th:action="@{/update2}">
 	    <input type="hidden" name="id" th:value="${expense.id}">
 
 		<div class="item-date">
-	    日付: <br>
+	    日付 <br>
 		<input type="date" name="date" th:value="${expense.date}"><br>
 		</div>
 		
 		<div class="item-category">
-	    カテゴリ: <br>
+	    カテゴリ <br>
 		<input type="text" name="category" th:value="${expense.category}"><br>
 		</div>
 		
 		<div class="item-price">
-	    価格: <br>
+	    価格 <br>
 		<input type="number" name="price" th:value="${expense.price}"><br>
 		</div>
 		
 		<div class="item-amount">
-	    数量: <br>
+	    数量 <br>
 		<input type="number" name="amount" th:value="${expense.amount}"><br>
 		</div>
 
@@ -44,5 +53,6 @@
 <!--	    <button type="submit">更新</button>-->
 <!--	</form>-->
 <a class="back" href="/list">日付選択に戻る</a>
+</div>
 </body>
 </html>

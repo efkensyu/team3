@@ -7,7 +7,17 @@
 </head>
 <body>
 	<!--ここにまず飛んでくる-->
-<h1>超簡単家計簿</h1>
+<!-- 上に固定するバー -->
+<div class="fixed-bar-top">
+	</div>
+
+<!-- 下に固定するバー -->
+<div class="fixed-bar-bottom"></div>
+
+<div class="content">	
+	
+<h1 class="easy">超簡単!!</h1>
+<h1 class="kakeibo">家計簿</h1>
 <h2>日付を選択してください</h2>
 
 <form method="get" th:action="@{/list}">
@@ -16,5 +26,7 @@
 </form>
 
 <p class="move">今日の家計簿をつけましょう</p>
+</div>
+
 </body>
 </html>
