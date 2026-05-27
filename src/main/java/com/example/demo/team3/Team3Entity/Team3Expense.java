@@ -30,13 +30,13 @@ public class Team3Expense {
 	private String category;
 	
 	@Min(value=1,message = "価格を１以上の値で入力してください")
-	@Max(value=10000,message = "価格は100億円以下の値を入力してください")
+	@Max(value=9999999,message = "価格は100億円以下の値を入力してください")
 	private int price;
-	
+
 	@Min(value=1,message="数量は１以上を入力してください")
-	@Max(value=10000,message = "価格は100億個以下の値を入力してください")
+	@Max(value=9999999,message = "価格は100億個以下の値を入力してください")
 	private int amount;
-	
+
 	@Column(name="result",insertable = false,updatable=false)
 	private int result;
 

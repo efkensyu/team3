@@ -3,39 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <title>円グラフ</title>
+
+    <!-- Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+        body{
+            text-align: center;
+            font-family: sans-serif;
+        }
+
+        .chart-area{
+            width: 500px;
+            margin: 30px auto;
+        }
+    </style>
 </head>
-<link rel="stylesheet" type="text/css" href="team3/Team3Chart.css">
-
 <body>
-	<!-- 上に固定するバー -->
-	<div class="fixed-bar-top">
-		</div>
 
-	<!-- 下に固定するバー -->
-	<div class="fixed-bar-bottom"></div>
+<h2 th:text="${date} + ' の内訳'"></h2>
 
-	<div class="content">
-		
-<h1 th:text="${date} + ' の内訳'"></h1>
-
-<div style="width:500px; margin:auto">
-	<canvas id="pieChart"></canvas>
+<div class="chart-area">
+    <canvas id="pieChart"></canvas>
 </div>
+
 <script th:inline="javascript">
 
+    // Controllerから渡されたMapを受け取る
     let dataMap = /*[[${map}]]*/ {};
 
+    // ラベルと値を取得
     let labels = Object.keys(dataMap);
     let values = Object.values(dataMap);
 
+    // 円グラフ生成
     new Chart(document.getElementById('pieChart'), {
+
         type: 'pie',
+
         data: {
             labels: labels,
+
             datasets: [{
-                data: values
+                label: '支出',
+
+                data: values,
+
+                backgroundColor: [
+                    '#ff6384',
+                    '#36a2eb',
+                    '#ffce56',
+                    '#4bc0c0',
+                    '#9966ff',
+                    '#ff9f40'
+                ],
+
+                borderWidth: 1
             }]
+        },
+
+        options: {
+
+            responsive: true,
+
+            plugins: {
+
+                // 凡例設定
+                legend: {
+
+                    position: 'bottom',
+
+                    labels: {
+
+                        font: {
+                            size: 34
+                        },
+
+                        padding: 20
+                    }
+                },
+
+                // タイトル設定
+                title: {
+                    display: true
+                    
+                }
+            }
         }
     });
 
@@ -43,10 +96,10 @@
 
 <br>
 
-<a class="back" th:href="@{/list(date=${date})}">
-<!--DateaddOutにもどる-->
+<!-- 一覧画面へ戻る -->
+<a th:href="@{/list(date=${date})}">
     戻る
 </a>
-</div>
+
 </body>
 </html>

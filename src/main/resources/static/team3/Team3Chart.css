@@ -6,8 +6,8 @@ body {
 	text-align: center;
 }
 
-a.back {
-    font-size: 28px;
+a {
+    font-size: 280px !important;
 }
 
 /* 1. 上のバー） */

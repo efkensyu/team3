@@ -28,14 +28,14 @@
 
 	<div class="item-price">
     価格 <br>
-	<input type="number" th:field="*{price}">
+	<input type="number" th:field="*{price}" max="9999999">
 	<div th:errors="*{price}" style="color:red"></div>
 	</div>
 	<br>
 	
 	<div class="item-amount">
     数量 <br>
-	 <input type="number" th:field="*{amount}">
+	 <input type="number" th:field="*{amount}" max="9999999">
 	 <div th:errors="*{amount}" style="color:red"></div>
 	 </div>
 	 <br>
