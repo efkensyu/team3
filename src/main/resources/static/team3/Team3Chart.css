@@ -6,8 +6,17 @@ body {
 	text-align: center;
 }
 
-a {
-    font-size: 280px !important;
+/*a {*/
+/*    font-size: 280px !important;*/
+/*}*/
+
+a.back {
+    font-size: 25px;
+	margin-top: 0;
+}
+
+h2 {
+    font-size: 30px;
 }
 
 /* 1. 上のバー） */

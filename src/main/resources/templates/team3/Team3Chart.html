@@ -19,8 +19,17 @@
         }
     </style>
 </head>
+<link rel="stylesheet" type="text/css" href="team3/Team3Chart.css">
 <body>
+<!-- 上に固定するバー -->
+<div class="fixed-bar-top">
+	</div>
 
+<!-- 下に固定するバー -->
+<div class="fixed-bar-bottom"></div>
+
+<div class="content">
+	
 <h2 th:text="${date} + ' の内訳'"></h2>
 
 <div class="chart-area">
@@ -97,9 +106,10 @@
 <br>
 
 <!-- 一覧画面へ戻る -->
-<a th:href="@{/list(date=${date})}">
+<a class="back" th:href="@{/list(date=${date})}">
     戻る
 </a>
 
+</div>
 </body>
 </html>
