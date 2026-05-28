@@ -81,13 +81,13 @@ public class Team3Dateadd {
 //        データの保存
         repository.save(e);
 //        return "Team3DateaddOut";
-        return "redirect:/list?date=" + e.getDate();
+        return "redirect:/team3list?date=" + e.getDate();
     }
     
 
     // 一覧画面
     //これが初め
-    @GetMapping("/list")
+    @GetMapping("/team3list")
     public String list(@RequestParam(required = false) String date,  Model model) {
     	try {
     		model.addAttribute("today",LocalDate.now());
@@ -126,7 +126,7 @@ public class Team3Dateadd {
     @PostMapping("/delete2")
     public String delete(@RequestParam int id,@RequestParam String date) {
     	repository.deleteById(id);
-        return "redirect:/list?date=" + date;
+        return "redirect:/team3list?date=" + date;
     }
     
 //    編集画面
@@ -164,7 +164,7 @@ public class Team3Dateadd {
 			e.printStackTrace();
 			return "team3/Team3Error";
 	}
-        return "redirect:/list?date=" + date;
+        return "redirect:/team3list?date=" + date;
     }
     
 //    保存ボタンの追加
@@ -189,7 +189,7 @@ public class Team3Dateadd {
 			e.printStackTrace();
 			return "team3/Team3Error";
 	}
-        return "redirect:/list?date=" + date;
+        return "redirect:/team3list?date=" + date;
     }
     
 //    グラフの表示
